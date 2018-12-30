@@ -1,23 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 
-import { RootLayoutComponent } from './root-layout.component';
+import { SimpleHttpDebugComponent } from './simple-http-debug.component';
 import { WidgetBaseModule } from '../shared/widget-base/widget-base.module';
 
-describe('RootLayoutComponent', () => {
-  let component: RootLayoutComponent;
-  let fixture: ComponentFixture<RootLayoutComponent>;
+describe('SimpleHttpDebugComponent', () => {
+  let component: SimpleHttpDebugComponent;
+  let fixture: ComponentFixture<SimpleHttpDebugComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RootLayoutComponent ],
-      imports: [WidgetBaseModule, RouterTestingModule]
+      declarations: [ SimpleHttpDebugComponent ],
+      imports: [ WidgetBaseModule ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RootLayoutComponent);
+    fixture = TestBed.createComponent(SimpleHttpDebugComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

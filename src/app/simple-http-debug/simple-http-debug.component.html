@@ -1,0 +1,52 @@
+<form>
+  <mat-form-field appearance="outline">
+    <mat-label>Port number</mat-label>
+    <input matInput placeholder="80" value="80">
+    <mat-hint>Between 1025 and 65535</mat-hint>
+  </mat-form-field>
+</form>
+<button mat-flat-button matSuffix>
+    <mat-icon>play_circle_outline</mat-icon>
+</button>
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        GET
+      </mat-panel-title>
+      <mat-panel-description>
+        /api/awesome
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div>
+    <pre>
+      headers:
+        Accept: application/json
+
+      body:
+    </pre>
+    </div>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          POST
+        </mat-panel-title>
+        <mat-panel-description>
+          /api/awesome
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div>
+      <pre>
+        headers:
+          ContentType: application/json
+          Accept: application/json
+
+        body:
+      </pre>
+      </div>
+    </mat-expansion-panel>
+</mat-accordion>
