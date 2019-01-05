@@ -1,52 +1,32 @@
-<form>
-  <mat-form-field appearance="outline">
-    <mat-label>Port number</mat-label>
-    <input matInput placeholder="80" value="80">
-    <mat-hint>Between 1025 and 65535</mat-hint>
-  </mat-form-field>
-</form>
-<button mat-flat-button matSuffix>
-    <mat-icon>play_circle_outline</mat-icon>
-</button>
-<mat-accordion>
-  <mat-expansion-panel>
+<div class="server-definition">
+  <form>
+    <mat-form-field appearance="outline">
+      <mat-label>Port number</mat-label>
+      <input matInput placeholder="80" value="{{ application.port }}">
+      <mat-hint>Between 1025 and 65535</mat-hint>
+    </mat-form-field>
+  </form>
+
+  <button mat-flat-button matSuffix (click)="onStartStopButton()">
+      <mat-icon>play_circle_outline</mat-icon>
+  </button>
+</div>
+<mat-accordion *ngIf="application.requests$ | async as requests">
+  <mat-expansion-panel *ngFor="let req of requests">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        GET
+        {{ req.method }}
       </mat-panel-title>
       <mat-panel-description>
-        /api/awesome
+        {{ req.url }}
       </mat-panel-description>
     </mat-expansion-panel-header>
 
     <div>
-    <pre>
-      headers:
-        Accept: application/json
-
-      body:
-    </pre>
+      Headers:
+      <div *ngFor="let item of asEntries(req.headers)">
+        {{ item.key }} : {{ item.value }}
+      </div>
     </div>
   </mat-expansion-panel>
-
-  <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          POST
-        </mat-panel-title>
-        <mat-panel-description>
-          /api/awesome
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-
-      <div>
-      <pre>
-        headers:
-          ContentType: application/json
-          Accept: application/json
-
-        body:
-      </pre>
-      </div>
-    </mat-expansion-panel>
 </mat-accordion>
