@@ -45,6 +45,6 @@ class DebugApplication implements Application {
 export const createDebugApplication = (port: number): Application => new DebugApplication(port);
 
 function arrayReducer(acc: IncomingMessage[], msg: IncomingMessage): IncomingMessage[] {
-  acc.push(msg);
+  acc.unshift(msg);
   return acc;
 }

@@ -1,14 +1,12 @@
 <div class="server-definition">
-  <form>
-    <mat-form-field appearance="outline">
-      <mat-label>Port number</mat-label>
-      <input matInput placeholder="80" value="{{ application.port }}">
-      <mat-hint>Between 1025 and 65535</mat-hint>
-    </mat-form-field>
-  </form>
+  <mat-form-field>
+    <mat-label>Port number</mat-label>
+    <input matInput placeholder="80" [(ngModel)]="application.port" [disabled]="application.isRunning">
+    <mat-hint>Between 1025 and 65535</mat-hint>
+  </mat-form-field>
 
   <button mat-flat-button matSuffix (click)="onStartStopButton()">
-      <mat-icon>play_circle_outline</mat-icon>
+      <mat-icon>{{ application.isRunning ? 'pause_circle_outline' : 'play_circle_outline'}}</mat-icon>
   </button>
 </div>
 <mat-accordion *ngIf="application.requests$ | async as requests">
